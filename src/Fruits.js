@@ -10,10 +10,11 @@ class Fruits extends Component {
 		})
 		return (
 			<div>
+				<h2>Fruit</h2>
 				<ul>
 					{listFruits}
 				</ul>
-				<NewFruit createFruit={this.props.createFruit}/>
+				<NewFruit createItem={this.props.createItem}/>
 			</div>
 		)
 	}

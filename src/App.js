@@ -16,9 +16,16 @@ class App extends Component {
     console.log(event.currentTarget);
     event.currentTarget.classList.toggle('item-strike');
   }
-  createFruit = (fruit) => {
+  createItem = (item) => {
+    console.log(item);
     const state = this.state;
-    state.fruits.push(fruit);
+    if (item[1] === 'fruit'){
+      state.fruits.push(item[0]);
+    } else if (item[1] === 'not-fruit') {
+      state.list.push(item[0]);
+    } else {
+      ;
+    }
     this.setState(state);
   }
   render() {
@@ -26,8 +33,8 @@ class App extends Component {
 
       <div>
         <h1>Hi, I am React</h1>
-        <List crossOut={this.itemComplete} list={this.state.list}/>
-        <Fruits crossOut={this.itemComplete} fruits={this.state.fruits} createFruit={this.createFruit}/>
+        <List crossOut={this.itemComplete} list={this.state.list} createItem={this.createItem}/>
+        <Fruits crossOut={this.itemComplete} fruits={this.state.fruits} createItem={this.createItem}/>
       </div>
     );
   }

@@ -10,9 +10,12 @@ class List extends Component {
 
 
 		return (
-			<ul>
-				{listItems}
-			</ul>
+			<div>
+				<h2>Not Fruit</h2>
+				<ul>
+					{listItems}
+				</ul>
+			</div>
 		)		
 	}
 }
