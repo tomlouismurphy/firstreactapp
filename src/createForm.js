@@ -21,6 +21,12 @@ class CreateForm extends Component {
 		this.setState(state);
 		console.log(this.state);
 	}
+	handleForm = (e) => {
+		const state = this.state;
+		state[e.currentTarget.name] = e.currentTarget.value;
+		this.setState(state);
+		console.log(this.state);
+	}
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const createdPieces = [];
@@ -34,12 +40,12 @@ class CreateForm extends Component {
 		return (
 			<form>
 				<label>New Item</label>
-					<select onChange={this.handleOption}>
+					<select name="sumValue" onChange={this.handleForm}>
 						<option value="null">Choose A Category</option>
 						<option value="fruit">Fruit</option>
 						<option value="not-fruit">Not Fruit</option>
 					</select>
-					<input type="text" placeholder="new item" onChange={this.handleInput} value={this.state.inputValue}/>
+					<input name="inputValue" type="text" placeholder="new item" onChange={this.handleForm} value={this.state.inputValue}/>
 				<button onClick={this.handleSubmit}>Create Item</button>
 			</form>
 		)
